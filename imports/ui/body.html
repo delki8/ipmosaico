@@ -1,0 +1,18 @@
+<body>
+  <div class="toolbar">
+    {{> loginButtons}}
+  </div>
+  {{> evento}}
+  <ul>
+    {{#each todosEventos}}
+      <li>
+        {{nome}} -
+        <button class="inscrever" id="{{_id}}">
+          {{ inscreverDesinscrever _id }}
+        </button>
+      </li>
+    {{else}}
+      <li>Nenhum evento cadastrado</li>
+    {{/each}}
+  </ul>
+</body>
