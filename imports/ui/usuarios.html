@@ -1,0 +1,12 @@
+<template name="usuarios">
+  <ul>
+    {{ #each todosUsuarios }}
+      <li>
+        {{ username }} -
+        {{ #each roles }}
+          {{ > userRole userId=../_id userName=../username roleId=_id roleName=name }}
+        {{/each}}
+      </li>
+    {{/each}}
+  </ul>
+</template>

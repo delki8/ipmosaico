@@ -2,17 +2,19 @@
   <div class="toolbar">
     {{> loginButtons}}
   </div>
-  {{> evento}}
-  <ul>
-    {{#each todosEventos}}
-      <li>
-        {{nome}} -
-        <button class="inscrever" id="{{_id}}">
-          {{ inscreverDesinscrever _id }}
-        </button>
-      </li>
-    {{else}}
-      <li>Nenhum evento cadastrado</li>
-    {{/each}}
-  </ul>
+  <!-- <button class="souAdmin">
+    sou admin
+  </button> -->
+  {{ #if currentUser }}
+    {{ #if podeInserirEventos }}
+
+      {{> evento}}
+
+    {{/if}}
+    {{> eventos}}
+  {{ else }}
+    Por favor faça o login para se inscrever
+  {{/if}}
+
+  {{ > usuarios }}
 </body>

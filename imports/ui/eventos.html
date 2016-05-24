@@ -1,0 +1,14 @@
+<template name="eventos">
+  <ul>
+    {{ #each todosEventos}}
+      <li>
+        <button class="inscrever" id="{{_id}}">
+          {{ inscreverDesinscrever _id }}
+        </button>
+        {{nome}} - {{dataInicio}}
+      </li>
+    {{else}}
+      <li>Nenhum evento cadastrado</li>
+    {{/each}}
+  </ul>
+</template>

@@ -11,6 +11,18 @@ Meteor.publish('eventos', function() {
   return Eventos.find();
 });
 
+Meteor.publish('usuarios', function() {
+  return Meteor.users.find({});
+});
+
+Meteor.publish('roles', function() {
+  return Meteor.roles.find({});
+});
+
+// Meteor.users.deny({
+//   update() { return true; }
+// });
+
 Meteor.methods({
 
   'insert-evento': function(obj) {
@@ -26,5 +38,17 @@ Meteor.methods({
       };
     }
     Eventos.update(eventoId, inscreverDesinscrever);
+  },
+
+  'podeInserirEventos': function(userId) {
+    return Roles.userIsInRole(userId, ['moderador']);
+  },
+
+  'adicionar-role': function(userId, role) {
+    Roles.addUsersToRoles(userId, role);
+  },
+
+  'remover-role': function(userId, role) {
+    Roles.removeUsersFromRoles(userId, role);
   }
 });
