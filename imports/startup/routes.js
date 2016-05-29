@@ -5,17 +5,10 @@ FlowRouter.route('/', {
   }
 });
 
-FlowRouter.route('/evento/list', {
+FlowRouter.route('/evento', {
   name: 'Evento.list',
   action: function(params, queryParams) {
     BlazeLayout.render('corpo', {nome: 'eventos'});
-  }
-});
-
-FlowRouter.route('/evento/new', {
-  name: 'Evento.new',
-  action: function(params, queryParams) {
-    BlazeLayout.render('corpo', {nome: 'evento'});
   }
 });
 

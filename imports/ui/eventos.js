@@ -7,10 +7,8 @@ Template.eventos.onCreated(function eventosOnCreated() {
     Session.set('podeInserirEventos', result);
   });
   if(Session.get('podeInserirEventos')) {
-    console.log('posso inserir eventos');
     Meteor.subscribe('eventos');
   } else {
-    console.log('nem posso');
     Meteor.subscribe('eventosAtivos');
   }
 });
