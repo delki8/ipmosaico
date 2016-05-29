@@ -1,15 +1,17 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { ReactiveDict } from 'meteor/reactive-dict';
 
-import './usuarios.html';
-import './userRole.js';
+import './usuarios.js';
+import './eventos.js';
+import './evento.js';
+import './corpo.html';
 
-Template.usuarios.onCreated(function bodyOnCreated() {
-  Meteor.subscribe('usuarios');
-  Meteor.subscribe('roles');
+Template.corpo.onCreated(function corpoOnCreated() {
+  
 });
 
-Template.usuarios.helpers({
+Template.corpo.helpers({
   podeEditarUsuarios() {
     Meteor.call('podeEditarUsuarios', Meteor.userId(), function(error, result) {
       if (error) {
@@ -19,11 +21,5 @@ Template.usuarios.helpers({
       Session.set('podeEditarUsuarios', result);
     });
     return Session.get('podeEditarUsuarios');
-  },
-  todosUsuarios() {
-    return Meteor.users.find({});
-  },
-  roles() {
-    return Meteor.roles.find({});
   }
 });

@@ -24,6 +24,7 @@ accounts-facebook
 practicalmeteor:mocha
 
 kadira:flow-router
+kadira:blaze-layout
 aldeed:autoform
 aldeed:collection2
 meteortoys:allthings

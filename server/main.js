@@ -7,6 +7,10 @@ import { Mongo } from 'meteor/mongo';
 
 export const Eventos = new Mongo.Collection('eventos');
 
+Meteor.publish('eventosAtivos', function() {
+  return Eventos.find({ativo: true});
+});
+
 Meteor.publish('eventos', function() {
   return Eventos.find();
 });
@@ -19,9 +23,9 @@ Meteor.publish('roles', function() {
   return Meteor.roles.find({});
 });
 
-// Meteor.users.deny({
-//   update() { return true; }
-// });
+Meteor.users.deny({
+  update() { return true; }
+});
 
 Meteor.methods({
 
@@ -40,8 +44,19 @@ Meteor.methods({
     Eventos.update(eventoId, inscreverDesinscrever);
   },
 
+  'ativarDesativar-evento': function(eventoId) {
+    const ev = Eventos.findOne(eventoId);
+    Eventos.update(eventoId, {
+      $set: { ativo: !ev.ativo },
+    });
+  },
+
   'podeInserirEventos': function(userId) {
     return Roles.userIsInRole(userId, ['moderador']);
+  },
+
+  'podeEditarUsuarios': function(userId) {
+    return Roles.userIsInRole(userId, ['admin']);
   },
 
   'adicionar-role': function(userId, role) {

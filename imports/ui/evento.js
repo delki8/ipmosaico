@@ -5,15 +5,24 @@ import { EventoSchema } from '../api/EventoSchema';
 import './evento.html';
 
 Template.evento.onCreated(function eventoOnCreated() {
-  AutoForm.debug();
+  Meteor.call('podeInserirEventos', Meteor.userId(), function(error, result) {
+    if (error) {
+      console.log(error.reason);
+      return;
+    }
+    Session.set('podeInserirEventos', result);
+  });
 })
 
 Template.evento.helpers({
+  podeInserirEventos() {
+    return Session.get('podeInserirEventos');
+  }
 
 });
 
 Template.evento.events({
-  
+
 });
 
 AutoForm.addHooks("eventoForm", {

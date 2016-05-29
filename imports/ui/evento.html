@@ -1,3 +1,7 @@
 <template name="evento">
-  {{> quickForm id="eventoForm" collection="Eventos" type="method" meteormethod="insert-evento"}}
+  {{ #if podeInserirEventos }}
+    {{> quickForm id="eventoForm" collection="Eventos" type="method" meteormethod="insert-evento"}}
+  {{else}}
+    Você não tem permissão para cadastrar eventos.
+  {{/if}}
 </template>

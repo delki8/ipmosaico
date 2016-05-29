@@ -1,14 +1,23 @@
 <template name="eventos">
+  {{ #if currentUser }}
   <ul>
     {{ #each todosEventos}}
       <li>
         <button class="inscrever" id="{{_id}}">
           {{ inscreverDesinscrever _id }}
         </button>
+        {{ #if podeInserirEventos }}
+          <button class="ativar" id="{{_id}}">
+            {{ ativarDesativar _id }}
+          </button>
+        {{/if}}
         {{nome}} - {{dataInicio}}
       </li>
     {{else}}
-      <li>Nenhum evento cadastrado</li>
+      <li>Nenhum evento disponível</li>
     {{/each}}
   </ul>
+  {{else}}
+    Por favor faça o login para se inscrever
+  {{/if}}
 </template>
