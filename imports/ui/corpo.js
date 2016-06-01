@@ -4,6 +4,7 @@ import { ReactiveDict } from 'meteor/reactive-dict';
 
 import './usuarios.js';
 import './eventos.js';
+import './sidebar.js';
 import './corpo.html';
 
 Template.corpo.onCreated(function corpoOnCreated() {

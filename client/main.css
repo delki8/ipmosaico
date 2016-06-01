@@ -1,3 +1,11 @@
 a {
+  color: lightgrey;
+}
+a.menu {
   cursor: pointer;
+  color: #617F3E;
+}
+a.menu:hover {
+  color: grey;
+  font-weight: bold;
 }
