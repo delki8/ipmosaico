@@ -1,27 +1,55 @@
 <template name="eventos">
   {{ #if currentUser }}
     {{ #if podeInserirEventos }}
-      {{> quickForm id="eventoForm" collection="Eventos" type="method" meteormethod="insert-evento"}}
-    {{else}}
-      Você não tem permissão para cadastrar eventos.
+      <div class="row">
+        <div class="col s6 offset-s3">
+          <div class="card grey lighten-5">
+            {{#autoForm
+              collection="Eventos"
+              id="insertEventoForm"
+              type="method"
+              meteormethod="insert-evento"}}
+              <div class="card-content">
+                <span class="card-title">Evento</span>
+                <fieldset>
+                  {{> afQuickField name='nome'}}
+                  {{> afQuickField name='dataInicio'}}
+                  {{> afQuickField name='dataFim'}}
+                </fieldset>
+              </div>
+              <div class="card-action">
+                <button type="submit" class="btn btn-primary">
+                  Salvar
+                </button>
+              </div>
+            {{/autoForm}}
+          </div>
+        </div>
+      </div>
     {{/if}}
-    <ul>
-      {{ #each todosEventos}}
-        <li>
-          <button class="inscrever" id="{{_id}}">
+
+    {{ #each todosEventos}}
+      <div class="row">
+        <div class="col s6">
+          <span class="card-title">{{nome}}</span>
+        </div>
+        <div class="col s3">
+          <a class="btn inscrever" id="{{_id}}">
             {{ inscreverDesinscrever _id }}
-          </button>
+          </a>
+        </div>
+        <div class="col s3">
           {{ #if podeInserirEventos }}
-            <button class="ativar" id="{{_id}}">
+            <a class="btn ativar" id="{{_id}}">
               {{ ativarDesativar _id }}
-            </button>
+            </a>
           {{/if}}
-          {{nome}} - {{dataInicio}}
-        </li>
-      {{else}}
-        <li>Nenhum evento disponível</li>
-      {{/each}}
-    </ul>
+        </div>
+      </div>
+    {{else}}
+      Nenhum evento disponível
+    {{/each}}
+
   {{else}}
     Por favor faça o login para se inscrever
   {{/if}}
