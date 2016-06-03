@@ -30,6 +30,7 @@ Meteor.users.deny({
 Meteor.methods({
 
   'insert-evento': function(obj) {
+    obj.userIds = [];
     Eventos.insert(obj);
   },
 
@@ -49,6 +50,10 @@ Meteor.methods({
     Eventos.update(eventoId, {
       $set: { ativo: !ev.ativo },
     });
+  },
+
+  'delete-evento': function(eventoId) {
+    Eventos.remove(eventoId);
   },
 
   'podeInserirEventos': function(userId) {

@@ -4,6 +4,8 @@ a {
 a.menu {
   cursor: pointer;
   color: #617F3E;
+  font-size: 1.4rem;
+  font-family: GillSans, Calibri, Trebuchet, sans-serif;
 }
 a.menu:hover {
   color: grey;

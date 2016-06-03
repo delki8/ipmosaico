@@ -14,7 +14,7 @@
                 <fieldset>
                   {{> afQuickField name='nome'}}
                   {{> afQuickField name='dataInicio'}}
-                  {{> afQuickField name='dataFim'}}
+                  <!-- {{> afQuickField name='dataFim'}} -->
                 </fieldset>
               </div>
               <div class="card-action">
@@ -28,27 +28,71 @@
       </div>
     {{/if}}
 
+    <table class="bordered">
+      <thead>
+          <tr>
+              <th data-field="name">Nome</th>
+              <th data-field="dataInicio">Data</th>
+              <th></th>
+              <th></th>
+              <th data-field="price"></th>
+          </tr>
+        </thead>
     {{ #each todosEventos}}
-      <div class="row">
-        <div class="col s6">
-          <span class="card-title">{{nome}}</span>
-        </div>
-        <div class="col s3">
+      <tr>
+        <td>
+          {{nome}}
+        </td>
+        <td>
+          {{dataInicio}}
+        </td>
+        <td>
+          <button class="waves-effect waves-light btn modal-trigger"
+              href="#modal1">
+            Inscritos
+          </button>
+        </td>
+        <td>
           <a class="btn inscrever" id="{{_id}}">
             {{ inscreverDesinscrever _id }}
           </a>
-        </div>
-        <div class="col s3">
-          {{ #if podeInserirEventos }}
-            <a class="btn ativar" id="{{_id}}">
+        </td>
+        {{ #if podeInserirEventos }}
+          <td>
+            <a class="btn ativar pull-right">
               {{ ativarDesativar _id }}
             </a>
-          {{/if}}
-        </div>
-      </div>
+          </td>
+          <td>
+            <a class="btn apagar pull-right">
+              Apagar
+            </a>
+          </td>
+        {{/if}}
+      </tr>
     {{else}}
-      Nenhum evento disponível
+      <tr>
+        <td>
+          Nenhum evento disponível
+        </td>
+      </tr>
     {{/each}}
+    </table>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal bottom-sheet">
+      <div class="modal-content">
+        <h4>{{nomeEventoSelecionado}}</h4>
+        {{ #each inscritos }}
+          <p>{{username}}</p>
+        {{/each}}
+      </div>
+      <div class="modal-footer">
+        <button class=" modal-action modal-close waves-effect waves-green btn-flat">
+          Fechar
+        </button>
+      </div>
+    </div>
 
   {{else}}
     Por favor faça o login para se inscrever
