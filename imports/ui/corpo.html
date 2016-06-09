@@ -1,18 +1,27 @@
 <template name="corpo">
-  <div class="row grey darken-2">
-    <div class="col s12">
-      <h5>
-        {{> loginButtons}}
-      </h5>
+  <div class="row grey darken-3">
+    <div class="col s2">
+      <a href="/">
+        <img src="/images/mosaico_logo.svg" style="width: 120px;" />
+      </a>
+    </div>
+    <div class="col s10 blue-text text-lighten-2">
+      <h4 class="titulo valign-wrapper">
+        Igreja Presbiteriana Mosaico
+      </h4>
     </div>
   </div>
 
   <div class="row">
     <div class="col s0 m2">
-      {{> sidebar}}
+      <div class="card-panel grey darken-3">
+        {{> sidebar}}
+      </div>
     </div>
     <div class="col s12 m10">
-      {{> Template.dynamic template=nome}}
+      <div class="card-panel grey darken-3 grey-text">
+        {{> Template.dynamic template=nome}}
+      </div>
     </div>
   </div>
 </template>

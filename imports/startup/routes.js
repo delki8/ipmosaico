@@ -1,7 +1,14 @@
 FlowRouter.route('/', {
   name: 'home',
   action: function() {
-    console.log('Im at home again ');
+    FlowRouter.go('Evento.bonito');
+  }
+});
+
+FlowRouter.route('/eventos/inscricoes', {
+  name: 'Evento.bonito',
+  action: function(params, queryParams) {
+    BlazeLayout.render('corpo', {nome: 'eventosBonitos'});
   }
 });
 

@@ -1,8 +1,8 @@
 import './userRole.html';
 
-Template.usuarios.onCreated(function bodyOnCreated() {
-  Meteor.subscribe('usuarios');
-  Meteor.subscribe('roles');
+Template.userRole.onCreated(function bodyOnCreated() {
+  // Meteor.subscribe('usuarios');
+  // Meteor.subscribe('roles');
 });
 
 Template.userRole.helpers({

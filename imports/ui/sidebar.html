@@ -1,10 +1,13 @@
 <template name="sidebar">
   <div class="row">
+    {{> loginButtons}}
+  </div>
+  <div class="row">
       <a class="menu" href="/evento">
         <div class="col s2 center-align">
           <i class="fa fa-calendar"></i>
         </div>
-        <div class="col s10">
+        <div class="col s10 hide-on-med-and-down">
           Eventos
         </div>
       </a>
@@ -14,9 +17,10 @@
       <div class="col s2 center-align">
         <i class="fa fa-users"></i>
       </div>
-      <div class="col s10">
+      <div class="col s10 hide-on-med-and-down">
         Usuários
       </div>
     </a>
   </div>
+
 </template>
