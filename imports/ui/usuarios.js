@@ -25,5 +25,8 @@ Template.usuarios.helpers({
   },
   roles() {
     return Meteor.roles.find({});
+  },
+  nome(user) {
+    return user.username != null ? user.username : user.profile.name;
   }
 });

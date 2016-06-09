@@ -2,10 +2,6 @@ import { Mongo } from 'meteor/mongo';
 
 export const Eventos = new Mongo.Collection('eventos');
 
-Meteor.publish('eventosPublicos', function() {
-  return Eventos.find({ativo: true});
-});
-
 Meteor.publish('eventosAtivos', function() {
   return Eventos.find({ativo: true});
 });

@@ -1,15 +1,15 @@
 <template name="usuarios">
   {{ #if podeEditarUsuarios }}
-  <ul>
+  <table class="bordered">
     {{ #each todosUsuarios }}
-      <li>
-        {{ username }} -
+      <tr>
+        {{ nome this }} -
         {{ #each roles }}
           {{ > userRole userId=../_id userName=../username roleId=_id roleName=name }}
         {{/each}}
-      </li>
+      </tr>
     {{/each}}
-  </ul>
+  </table>
   {{ else }}
     Você não tem permissão para editar usuários.
   {{/if}}

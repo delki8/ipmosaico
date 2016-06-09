@@ -4,13 +4,13 @@ import { Template } from 'meteor/templating';
 import './eventosBonitos.html';
 
 Template.eventosBonitos.onCreated(function eventosBonitosOnCreated() {
-    Meteor.subscribe('eventosPublicos');
+    Meteor.subscribe('eventosAtivos');
     Meteor.subscribe('usuarios');
 });
 
 Template.eventosBonitos.helpers({
-  eventos() {
-    return Eventos.find({});
+  eventosAtivos() {
+    return Eventos.find({ativo: true});
   },
   inscreverDesinscrever(eventoId) {
     const ev = Eventos.findOne(eventoId);
@@ -23,7 +23,7 @@ Template.eventosBonitos.helpers({
   inscrito(userId) {
     const inscrito = Meteor.users.findOne(userId);
     if (inscrito != null) {
-      return inscrito.username;
+      return inscrito.username != null ? inscrito.username : inscrito.profile.name;
     } else {
       return inscrito;
     }
