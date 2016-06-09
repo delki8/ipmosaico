@@ -12,13 +12,19 @@
           <div class="card-content">
             <span>
               {{formatDate dataInicio}}
-              -
-              {{numeroInscritos _id}}
             </span>
+            {{#if currentUser}}
+              - {{numeroInscritos _id}}
+            {{/if}}
+
             <div class="card-action">
+              {{#if currentUser}}
               <a class="inscrever" id="{{_id}}">
                 {{ inscreverDesinscrever _id }}
               </a>
+              {{else}}
+                Faça login para se inscrever
+              {{/if}}
             </div>
           </div>
           <div class="card-reveal">
@@ -26,11 +32,14 @@
               Inscritos em {{nome}}:
             </span>
             <br />
+            {{#if currentUser}}
               {{#each userIds}}
                 {{inscrito this}}
                 <br />
               {{/each}}
-
+            {{else}}
+              Faça login para ver quem mais se inscreveu
+            {{/if}}
           </div>
         </div>
       </div>

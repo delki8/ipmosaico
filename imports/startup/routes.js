@@ -15,7 +15,13 @@ FlowRouter.route('/eventos/inscricoes', {
 FlowRouter.route('/evento', {
   name: 'Evento.list',
   action: function(params, queryParams) {
-    BlazeLayout.render('corpo', {nome: 'eventos'});
+
+    if (Roles.userIsInRole(Meteor.userId(), ['moderador'])) {
+      BlazeLayout.render('corpo', {nome: 'eventos'});
+    } else {
+      FlowRouter.go('Evento.bonito');
+    }
+
   }
 });
 
