@@ -4,8 +4,9 @@ import './eventos.html';
 
 Template.eventos.onCreated(function eventosOnCreated() {
   eventoSelecionado = new ReactiveVar();
+  podeInserirEventos = new ReactiveVar();
   Meteor.call('podeInserirEventos', Meteor.userId(), function(error, result) {
-    Session.set('podeInserirEventos', result);
+    podeInserirEventos.set(result);
     if (result) {
       Meteor.subscribe('eventos');
     } else {
@@ -28,7 +29,7 @@ Template.eventos.helpers({
     }
   },
   podeInserirEventos() {
-    return Session.get('podeInserirEventos');
+    return podeInserirEventos.get();
   },
   inscritos() {
     if (!eventoSelecionado.get()) {
@@ -44,7 +45,7 @@ Template.eventos.helpers({
     return eventoSelecionado.get().nome;
   },
   meusPapeis() {
-    return Meteor.users.findOne(Meteor.userId()).roles + ' ' + Session.get('podeInserirEventos');
+    return Meteor.users.findOne(Meteor.userId()).roles + ' ' + podeInserirEventos.get();
   }
 });
 
