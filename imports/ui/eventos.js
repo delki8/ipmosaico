@@ -43,9 +43,6 @@ Template.eventos.helpers({
       return [];
     }
     return eventoSelecionado.get().nome;
-  },
-  meusPapeis() {
-    return Meteor.users.findOne(Meteor.userId()).roles + ' ' + podeInserirEventos.get();
   }
 });
 
