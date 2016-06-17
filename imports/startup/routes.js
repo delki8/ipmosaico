@@ -31,3 +31,10 @@ FlowRouter.route('/usuario/list', {
     BlazeLayout.render('corpo', {nome: 'usuarios'});
   }
 });
+
+FlowRouter.route('/localizacao', {
+  name: 'Localizacao',
+  action: function(params, queryParams) {
+    BlazeLayout.render('corpo', {nome: 'localizacao'});
+  }
+});

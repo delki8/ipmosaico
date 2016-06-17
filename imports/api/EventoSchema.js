@@ -14,6 +14,11 @@ Eventos.attachSchema(new SimpleSchema({
     label: "Data Final",
     optional: true
   },
+  urlImagem: {
+    type: String,
+    label: "Url da Imagem",
+    optional: true
+  },
   usersIds: {
   	type: [String],
   	optional: true,
@@ -21,5 +26,5 @@ Eventos.attachSchema(new SimpleSchema({
       type: "hidden",
       label: false
     }
-  },
+  }
 }));

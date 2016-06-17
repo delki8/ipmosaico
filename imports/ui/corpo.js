@@ -6,6 +6,7 @@ import './usuarios.js';
 import './eventos.js';
 import './eventosBonitos.js';
 import './sidebar.js';
+import './localizacao.js';
 import './corpo.html';
 
 Template.corpo.onCreated(function corpoOnCreated() {

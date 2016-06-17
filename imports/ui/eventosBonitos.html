@@ -4,7 +4,11 @@
       <div class="col s10 m6 l4">
         <div class="card small">
           <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="/images/jantar.jpg" />
+            {{ #if urlImagem }}
+              <img class="activator" src="{{urlImagem}}" />
+            {{ else }}
+              <img class="activator" src="/images/jantar.jpg" />
+            {{ /if }}
             <span class="card-title orange">
               {{nome}}
             </span>
