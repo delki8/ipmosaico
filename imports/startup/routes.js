@@ -32,9 +32,9 @@ FlowRouter.route('/usuario/list', {
   }
 });
 
-FlowRouter.route('/localizacao', {
-  name: 'Localizacao',
-  action: function(params, queryParams) {
-    BlazeLayout.render('corpo', {nome: 'localizacao'});
-  }
-});
+// FlowRouter.route('/localizacao', {
+//   name: 'Localizacao.mapa',
+//   action: function(params, queryParams) {
+//     BlazeLayout.render('corpo', {nome: 'localizacao'});
+//   }
+// });
