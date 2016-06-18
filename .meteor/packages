@@ -33,3 +33,4 @@ materialize:materialize
 fortawesome:fontawesome
 momentjs:moment
 session
+dburles:google-maps
