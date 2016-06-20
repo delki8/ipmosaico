@@ -46,10 +46,14 @@
     {{ #each todosEventos}}
       <tr>
         <td>
-          {{nome}}
+          <span style="color: #f5f5f5">
+            {{nome}}
+          </span>
         </td>
         <td>
-          {{formatDate dataInicio}}
+          <span style="color: #f5f5f5">
+            {{formatDate dataInicio}}
+          </span>
         </td>
         <td>
           <button class="waves-effect waves-light btn modal-trigger pull-right"

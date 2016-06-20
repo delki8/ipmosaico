@@ -6,5 +6,6 @@ import '../imports/startup/google-maps.js';
 import { Eventos } from '../imports/api/EventoSchema.js'
 
 Template.registerHelper("formatDate", function (date) {
-    return moment(date).format('DD/MM/YYYY');
+  let time = moment( date );
+  return time.tz('GMT').format('DD/MM/YYYY');
 });

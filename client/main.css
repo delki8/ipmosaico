@@ -17,3 +17,11 @@ a.menu:hover {
   margin-top: 40px;
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
 }
+
+.btn {
+  background-color: #43a047;
+}
+
+.btn:hover {
+  background-color: #4caf50;
+}

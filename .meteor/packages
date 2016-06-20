@@ -32,5 +32,6 @@ alanning:roles
 materialize:materialize
 fortawesome:fontawesome
 momentjs:moment
+aldeed:moment-timezone
 session
 dburles:google-maps
